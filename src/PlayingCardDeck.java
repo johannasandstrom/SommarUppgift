@@ -1,2 +1,56 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class PlayingCardDeck {
+    private ArrayList<PlayingCard> cards;
+
+    public PlayingCardDeck() {
+        createFullCardDeck();
+    }
+
+    private void createFullCardDeck() {
+        for (int i = 1; i <= 13; i++) {
+            cards.add(new PlayingCard(new Rank(i), Suit.CLUBS));
+        }
+        for (int i = 1; i <= 13; i++) {
+            cards.add(new PlayingCard(new Rank(i), Suit.HEARTS));
+        }
+        for (int i = 1; i <= 13; i++) {
+            cards.add(new PlayingCard(new Rank(i), Suit.SPADES));
+        }
+        for (int i = 1; i <= 13; i++) {
+            cards.add(new PlayingCard(new Rank(i), Suit.DIAMONDS));
+        }
+    }
+
+    public void shuffleCardDeck() {
+        Collections.shuffle(cards);
+    }
+
+
+    //OBS! DET GÅR BARA ATT FÅ INFO OM KORTETS RANK OCH SUIT OM KORTET ÄR SYNLIGT
+
+
+    //Takes the top card ([0]) of the deck. The card is then deleted from the deck.
+    public PlayingCard drawTopCard() {
+        if (!deckIsEmpty()) {
+            PlayingCard card = cards.get(0);
+            cards.remove(0);
+            return card;
+        }
+        return null;
+    }
+
+    public boolean deckIsEmpty() {
+        if (cards == null) {
+            return true;
+        } else {
+            return (cards.size() < 1);
+        }
+    }
+
+    public void addCardToDeck(PlayingCard card) {
+        card.setHidden(true);
+        cards.add(card);
+    }
 }

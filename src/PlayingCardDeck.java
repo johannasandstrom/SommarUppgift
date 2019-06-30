@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -38,6 +40,7 @@ public class PlayingCardDeck {
             cards.remove(0);
             return card;
         }
+        System.out.println("The card deck is empty.");
         return null;
     }
 
@@ -49,8 +52,17 @@ public class PlayingCardDeck {
         }
     }
 
-    public void addCardToDeck(PlayingCard card) {
+    public void addCardToDeck(@NotNull PlayingCard card) {
         card.setHidden(true);
         cards.add(card);
+    }
+
+    public int cardsLeft(){
+        return cards.size();
+    }
+
+    public void showCard(@NotNull PlayingCard card){
+        card.setHidden(false);
+        System.out.println(card.toString());
     }
 }

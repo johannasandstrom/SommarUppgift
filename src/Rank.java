@@ -48,4 +48,8 @@ public class Rank {
         return value;
     }
 
+    public String toString(){
+        return description;
+    }
+
 }

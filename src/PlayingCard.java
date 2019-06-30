@@ -24,4 +24,18 @@ public class PlayingCard {
     public void setHidden(boolean hidden) {
         isHidden = hidden;
     }
+
+    @Override
+    public String toString(){
+        switch(suit){
+            case CLUBS:
+                return rank.getDescription() + " of clubs";
+            case HEARTS:
+                return rank.getDescription() + " of hearts";
+            case SPADES:
+                return rank.getDescription() + " of spades";
+            default:
+                return rank.getDescription() + " of diamonds";
+        }
+    }
 }

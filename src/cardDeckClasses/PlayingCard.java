@@ -1,3 +1,5 @@
+package cardDeckClasses;
+
 public class PlayingCard {
     private Rank rank;
     private Suit suit;

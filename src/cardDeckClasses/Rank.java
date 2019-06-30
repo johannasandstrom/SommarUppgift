@@ -1,3 +1,5 @@
+package cardDeckClasses;
+
 import java.util.HashMap;
 
 public class Rank {

@@ -1,4 +1,4 @@
-public class PlayingCardGame {
+public class PlayingCardGame implements Runnable{
     /*
     o Skapa en blandad kortlek som spelet ska använda sig av
     o Kunna spela som en eller flera spelare (om spelet man valt att implementera spelas av flera spelare)
@@ -10,4 +10,15 @@ public class PlayingCardGame {
 
     Lägga till grafik, ljudeffekter???
      */
+
+    GUI gui = new GUI();
+
+    public static void main(String[] args) {
+        new Thread(new PlayingCardGame()).start();
+    }
+
+    @Override
+    public void run() {
+
+    }
 }

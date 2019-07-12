@@ -31,10 +31,6 @@ public class PlayingCardDeck {
         Collections.shuffle(cards);
     }
 
-
-    //OBS! DET GÅR BARA ATT FÅ INFO OM KORTETS RANK OCH SUIT OM KORTET ÄR SYNLIGT
-
-
     //Takes the top card ([0]) of the deck. The card is then deleted from the deck.
     public PlayingCard drawTopCard() {
         if (!deckIsEmpty()) {
@@ -65,6 +61,11 @@ public class PlayingCardDeck {
 
     public void showCard(@NotNull PlayingCard card){
         card.setHidden(false);
-        System.out.println(card.toString());
+    }
+
+    public void printCardDetails(@NotNull PlayingCard card){
+        if(!card.isHidden()) {
+            System.out.println(card.toString());
+        }
     }
 }

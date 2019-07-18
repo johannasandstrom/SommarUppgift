@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class PlayingCardDeck {
-    private ArrayList<PlayingCard> cards;
+    private ArrayList<PlayingCard> cards = new ArrayList<>();
 
     public PlayingCardDeck() {
         createFullCardDeck();

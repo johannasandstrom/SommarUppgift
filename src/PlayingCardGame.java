@@ -9,9 +9,13 @@ public class PlayingCardGame implements Runnable{
     }
 
     public static void main(String[] args) {
-        PlayingCardDeck deck = new PlayingCardDeck();
-        deck.shuffleCardDeck();
         new Thread(new PlayingCardGame()).start();
+//        while(true){
+//            if(board.getState() == State.GAME){
+//                PlayingCardDeck deck = new PlayingCardDeck();
+//                deck.shuffleCardDeck();
+//            }
+//        }
     }
 
     @Override

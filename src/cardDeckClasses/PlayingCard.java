@@ -4,11 +4,13 @@ public class PlayingCard {
     private Rank rank;
     private Suit suit;
     private boolean isHidden;
+    private Position pos;
 
     public PlayingCard(Rank rank, Suit suit){
         this.rank = rank;
         this.suit = suit;
         isHidden = true;
+        pos = new Position();
     }
 
     public Rank getRank() {
@@ -25,6 +27,14 @@ public class PlayingCard {
 
     public void setHidden(boolean hidden) {
         isHidden = hidden;
+    }
+
+    public Position getPos() {
+        return pos;
+    }
+
+    public void setPos(Position pos) {
+        this.pos = pos;
     }
 
     @Override

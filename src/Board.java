@@ -20,6 +20,9 @@ public class Board extends JPanel {
     private Button toMenu = new Button("Avsluta spel/Till menyn");
     private Button undo = new Button("Ångra senaste draget");
 
+    //font för spelets rubrik
+    Font menuHeadlineFont = new Font("arial", Font.BOLD, 50);
+
     public Board() {
         super();
         this.setOpaque(true);
@@ -79,7 +82,11 @@ public class Board extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g.setFont(menuHeadlineFont);
+        g.setColor(Color.white);
+        g.drawString("PYRAMID SOLITAIRE", 440, 80);
         setVisibilityOfContent(state);
+        displayImage("images/2C.jpg", 650, 100);
     }
 
     @Override
@@ -115,7 +122,12 @@ public class Board extends JPanel {
     private class ButtonRulesActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            //Visa reglerna!!!
+            Rules rules = new Rules();
+            rules.setSize(900, 230);
+            rules.setLocationRelativeTo(null);
+            rules.setResizable(false);
+            rules.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+            rules.setVisible(true);
         }
     }
 
@@ -129,7 +141,7 @@ public class Board extends JPanel {
     private class ButtonUndoActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            //Ångra senaste draget...
+            //Ångra senaste draget...???
         }
     }
 
@@ -139,5 +151,13 @@ public class Board extends JPanel {
             state = State.MENU;
             setVisibilityOfContent(state);
         }
+    }
+
+    private void displayImage(String url, int x, int y) {
+        JLabel jl = new JLabel();
+        jl.setIcon(new javax.swing.ImageIcon(getClass().getResource(url)));
+        jl.setOpaque(true);
+        jl.setBounds(x, y, 100, 153);
+        this.add(jl);
     }
 }

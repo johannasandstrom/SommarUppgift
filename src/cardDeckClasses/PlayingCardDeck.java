@@ -1,7 +1,5 @@
 package cardDeckClasses;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -33,7 +31,7 @@ public class PlayingCardDeck {
 
     //Takes the top card ([0]) of the deck. The card is then deleted from the deck.
     public PlayingCard drawTopCard() {
-        if (!deckIsEmpty()) {
+        if (!isEmpty()) {
             PlayingCard card = cards.get(0);
             cards.remove(0);
             return card;
@@ -42,7 +40,7 @@ public class PlayingCardDeck {
         return null;
     }
 
-    public boolean deckIsEmpty() {
+    public boolean isEmpty() {
         if (cards == null) {
             return true;
         } else {
@@ -50,7 +48,7 @@ public class PlayingCardDeck {
         }
     }
 
-    public void addCardToDeck(@NotNull PlayingCard card) {
+    public void addCardToDeck(PlayingCard card) {
         card.setHidden(true);
         cards.add(card);
     }
@@ -59,11 +57,11 @@ public class PlayingCardDeck {
         return cards.size();
     }
 
-    public void showCard(@NotNull PlayingCard card){
+    public void showCard(PlayingCard card){
         card.setHidden(false);
     }
 
-    public void printCardDetails(@NotNull PlayingCard card){
+    public void printCardDetails(PlayingCard card){
         if(!card.isHidden()) {
             System.out.println(card.toString());
         }

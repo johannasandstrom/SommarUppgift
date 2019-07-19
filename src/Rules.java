@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Rules extends JFrame {
-    private JFrame rules = new JFrame();
     private JLabel s1, s2, s3, s4, s5, s6, s7, s8;
     private Font fontHeadline = new Font("arial", Font.BOLD, 16);
     private Font fontNormalText = new Font("arial", Font.PLAIN, 12);

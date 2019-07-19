@@ -1,10 +1,17 @@
+import cardDeckClasses.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.net.URL;
+import java.util.ArrayList;
 
 public class Board extends JPanel {
-
+    CardLayout cl = new CardLayout();
+    PanelContainer pc = new PanelContainer();
     private State state = State.MENU;
+    GameBoard gameBoard = new GameBoard(cl, pc);
+
 
     //storleken på spelfönstret
     private int width = 1400;
@@ -21,38 +28,46 @@ public class Board extends JPanel {
     private Button undo = new Button("Ångra senaste draget");
 
     //font för spelets rubrik
-    Font menuHeadlineFont = new Font("arial", Font.BOLD, 50);
+    private Font menuHeadlineFont = new Font("arial", Font.BOLD, 50);
+    private Font fontButtons1 = new Font("arial", Font.BOLD, 18);
+    private Font fontButtons2 = new Font("arial", Font.BOLD, 12);
 
     public Board() {
         super();
         this.setOpaque(true);
         this.setBackground(backgroundColor);
-        this.setLayout(null);
+        this.setLayout(cl);
+        this.add(gameBoard, "1");
+        cl.show(this, "main");
         this.addButtons();
     }
 
-    public void addButtons() {
+    private void addButtons() {
         //här ska det som hör till menyn finnas (knappar etc)
         newGame.setBounds(600, 300, 200, 60);
         newGame.addActionListener(new ButtonNewGameActionListener());
+        newGame.setFont(fontButtons1);
         this.add(newGame);
         rules.setBounds(600, 380, 200, 60);
         rules.addActionListener(new ButtonRulesActionListener());
+        rules.setFont(fontButtons1);
         this.add(rules);
         endGame.setBounds(600, 460, 200, 60);
         endGame.addActionListener(new ButtonEndGameActionListener());
+        endGame.setFont(fontButtons1);
         this.add(endGame);
         undo.setBounds(1150, 350, 160, 60);
         undo.addActionListener(new ButtonUndoActionListener());
+        undo.setFont(fontButtons2);
         this.add(undo);
         toMenu.setBounds(1150, 430, 160, 60);
         toMenu.addActionListener(new ButtonToMenuActionListener());
-        toMenu.setEnabled(true);
+        toMenu.setFont(fontButtons2);
         this.add(toMenu);
     }
 
 
-    public void setVisibilityOfContent(State state) {
+    private void setVisibilityOfContent(State state) {
         if (state == State.MENU) {
             newGame.setVisible(true);
             rules.setVisible(true);
@@ -84,9 +99,8 @@ public class Board extends JPanel {
         super.paintComponent(g);
         g.setFont(menuHeadlineFont);
         g.setColor(Color.white);
-        g.drawString("PYRAMID SOLITAIRE", 440, 80);
+        g.drawString("PYRAMID SOLITAIRE", 440, 50);
         setVisibilityOfContent(state);
-        displayImage("images/2C.jpg", 650, 100);
     }
 
     @Override
@@ -114,6 +128,7 @@ public class Board extends JPanel {
     private class ButtonNewGameActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            cl.show(Board.this, "1");
             state = State.GAME;
             setVisibilityOfContent(state);
         }
@@ -151,13 +166,5 @@ public class Board extends JPanel {
             state = State.MENU;
             setVisibilityOfContent(state);
         }
-    }
-
-    private void displayImage(String url, int x, int y) {
-        JLabel jl = new JLabel();
-        jl.setIcon(new javax.swing.ImageIcon(getClass().getResource(url)));
-        jl.setOpaque(true);
-        jl.setBounds(x, y, 100, 153);
-        this.add(jl);
     }
 }

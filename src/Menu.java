@@ -5,22 +5,23 @@ import java.awt.event.ActionListener;
 
 public class Menu extends JPanel {
 
-    //hör ihop med CardLayout (se PanelContainer)
+    //Hör ihop med CardLayout (se PanelContainer)
     private CardLayout cl;
     private PanelContainer pc;
     private GameBoard gb;
 
-    //knapparna till menyn
+    //Knapparna till menyn
     private JButton newGame = new JButton("Starta nytt spel");
     private JButton rules = new JButton("Visa regler");
     private JButton endGame = new JButton("Avsluta programmet");
 
-    //typsnittsstilar
+    //Typsnittsstilar
     private Font menuHeadlineFont = new Font("arial", Font.BOLD, 50);
     private Font fontButtons = new Font("arial", Font.BOLD, 16);
 
 
-    public Menu(CardLayout cl, PanelContainer pc, GameBoard gb) {
+    //Konstruktorn - skapar panelens utseende och lägger till menyknapparna (package-private/varken private, public eller protected)
+    Menu(CardLayout cl, PanelContainer pc, GameBoard gb) {
         this.setSize(pc.getWidth(), pc.getHeight());
         this.setBackground(pc.getBackgroundColor());
         this.cl = cl;
@@ -30,8 +31,9 @@ public class Menu extends JPanel {
         addButtons();
     }
 
+    //Skapar menyknapparna
     private void addButtons() {
-        //nytt spel-knappen
+        //Nytt spel-knappen - öppnar GameBoard-panel
         newGame.setBounds(600, 300, 200, 60);
         newGame.setFont(fontButtons);
         this.add(newGame);
@@ -43,7 +45,7 @@ public class Menu extends JPanel {
             }
         });
 
-        //regler-knappen
+        //Regler-knappen (ser till att Regler öppnas i en ny ruta)
         rules.setBounds(600, 380, 200, 60);
         rules.setFont(fontButtons);
         this.add(rules);
@@ -59,7 +61,7 @@ public class Menu extends JPanel {
             }
         });
 
-        //avsluta programmet-knappen
+        //Avsluta programmet-knappen
         endGame.setBounds(600, 460, 200, 60);
         endGame.setFont(fontButtons);
         this.add(endGame);

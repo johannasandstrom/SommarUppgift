@@ -1,8 +1,9 @@
 import javax.swing.*;
 
-public class GUI extends JFrame {
+class GUI extends JFrame {
 
-    public GUI(PanelContainer panelContainer) {
+    //Skapar utseendet hos rutan som vårt spel visas i (package-private/varken private, public eller protected)
+    GUI(PanelContainer panelContainer) {
         this.setSize(panelContainer.getWidth(),panelContainer.getHeight());
         this.setLocationRelativeTo(null);
         this.setTitle("Pyramiden");

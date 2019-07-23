@@ -9,7 +9,7 @@ public class Rules extends JFrame {
 
     public Rules() {
         super("Regler");
-        setLayout(new FlowLayout(FlowLayout.CENTER, 750, 5)); //hgap - för att varje ny label ska hamna på en egen rad
+        setLayout(new FlowLayout(FlowLayout.CENTER, 750, 5)); //hgap - för att varje ny label (se addText) ska hamna på en egen rad
         addText();
     }
 

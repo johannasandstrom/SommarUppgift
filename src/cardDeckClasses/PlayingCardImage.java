@@ -23,7 +23,7 @@ public class PlayingCardImage {
             urlAddress = rank.getValue() + "S.jpg";
             //nedan tilldelas bilderna till ess-korten
         } else if (suit == CLUBS && rank.getValue() == 1){
-            urlAddress = "AS.jpg";
+            urlAddress = "AC.jpg";
         } else if (suit == HEARTS && rank.getValue() == 1){
             urlAddress = "AH.jpg";
         } else if (suit == DIAMONDS && rank.getValue() == 1){
@@ -32,7 +32,7 @@ public class PlayingCardImage {
             urlAddress = "AS.jpg";
             //nedan tilldelas bilderna till knekt-korten
         } else if (suit == CLUBS && rank.getValue() == 11){
-            urlAddress = "JS.jpg";
+            urlAddress = "JC.jpg";
         } else if (suit == HEARTS && rank.getValue() == 11){
             urlAddress = "JH.jpg";
         } else if (suit == DIAMONDS && rank.getValue() == 11){
@@ -41,7 +41,7 @@ public class PlayingCardImage {
             urlAddress = "JS.jpg";
             //nedan tilldelas bilderna till dam-korten
         } else if (suit == CLUBS && rank.getValue() == 12){
-            urlAddress = "QS.jpg";
+            urlAddress = "QC.jpg";
         } else if (suit == HEARTS && rank.getValue() == 12){
             urlAddress = "QH.jpg";
         } else if (suit == DIAMONDS && rank.getValue() == 12){
@@ -50,7 +50,7 @@ public class PlayingCardImage {
             urlAddress = "QS.jpg";
             //nedan tilldelas bilderna till kung-korten
         } else if (suit == CLUBS && rank.getValue() == 13){
-            urlAddress = "KS.jpg";
+            urlAddress = "KC.jpg";
         } else if (suit == HEARTS && rank.getValue() == 13){
             urlAddress = "KH.jpg";
         } else if (suit == DIAMONDS && rank.getValue() == 13){

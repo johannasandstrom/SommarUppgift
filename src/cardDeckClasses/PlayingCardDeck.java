@@ -29,11 +29,21 @@ public class PlayingCardDeck {
         Collections.shuffle(cards);
     }
 
-    //Takes the top card ([0]) of the deck. The card is then deleted from the deck.
+    //tar det översta kortet([0]) från kortleken, och tar bort det från högen.
     public PlayingCard drawTopCard() {
         if (!isEmpty()) {
             PlayingCard card = cards.get(0);
             cards.remove(0);
+            return card;
+        }
+        System.out.println("The card deck is empty.");
+        return null;
+    }
+
+    //"tittar på" det översta kortet i högen, utan att plocka bort det
+    public PlayingCard getTopCard(){
+        if (!isEmpty()) {
+            PlayingCard card = cards.get(0);
             return card;
         }
         System.out.println("The card deck is empty.");

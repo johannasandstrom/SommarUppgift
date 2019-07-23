@@ -38,8 +38,8 @@ public class Menu extends JPanel {
         newGame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gb.startNewGame();
                 cl.show(pc, "2");
+                gb.startNewGame();
             }
         });
 

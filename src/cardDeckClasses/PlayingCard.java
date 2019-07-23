@@ -6,6 +6,7 @@ public class PlayingCard {
     private boolean isHidden;
     private Position pos;
     private boolean isClickable;
+    private boolean isChosen;
 
     public PlayingCard(Rank rank, Suit suit){
         this.rank = rank;
@@ -44,6 +45,14 @@ public class PlayingCard {
 
     public void setClickable(boolean clickable) {
         isClickable = clickable;
+    }
+
+    public boolean isChosen() {
+        return isChosen;
+    }
+
+    public void setChosen(boolean chosen) {
+        isChosen = chosen;
     }
 
     @Override

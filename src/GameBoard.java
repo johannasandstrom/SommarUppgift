@@ -85,6 +85,7 @@ public class GameBoard extends JLayeredPane {
     void startNewGame() {
         removeAll(); //Tömmer planen på tidigare innehåll - behövs om man startar upp ett nytt spel efter att ha avslutat ett annat
         addButtons();
+        chosenCard = null;
         mlDiscarded = null;
         mlDeck = null;
         discardedCards.clear();
